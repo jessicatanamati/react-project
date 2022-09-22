@@ -6,11 +6,7 @@ on:
   push:
     branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
-    
-- uses: AppThreat/sast-scan-action@master
-  with:
-    type: "nodejs"
+    branches: [ "main" ]    
 
 jobs:
   build:
@@ -25,4 +21,7 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+    - uses: AppThreat/sast-scan-action@master
+      with:
+        type: "nodejs"
     - run: echo 'hello world!'
