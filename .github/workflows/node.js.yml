@@ -8,6 +8,10 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+    
+- uses: AppThreat/sast-scan-action@master
+  with:
+    type: "nodejs"
 
 jobs:
   build:
